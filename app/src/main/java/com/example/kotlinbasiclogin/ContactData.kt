@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 //Data class to contain the Data for the Users from the Nested Contact JSON object
 data class ContactData(
-
+                //rr
         @SerializedName("id")
         var employeeId: String?,
 
