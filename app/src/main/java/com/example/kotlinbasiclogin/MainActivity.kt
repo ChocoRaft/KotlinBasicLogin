@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        //Button that runs the review function
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             createReview()
         }
