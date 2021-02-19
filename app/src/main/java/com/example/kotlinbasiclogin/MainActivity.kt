@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 val reviewInfo = task.result
                 val flow =
                         reviewManager!!.launchReviewFlow(this, reviewInfo)
-                //This function above launches the review flow, popping up the play store UI and the review option
+                //This function above launches the review flow, popping up the play store UI and the rate/review option
 
                 //Needs a developer account to test.
 
