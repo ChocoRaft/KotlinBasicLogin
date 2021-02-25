@@ -1,4 +1,4 @@
-package com.example.kotlinbasiclogin
+package com.fyntros.android
 
 import com.google.gson.annotations.SerializedName
 

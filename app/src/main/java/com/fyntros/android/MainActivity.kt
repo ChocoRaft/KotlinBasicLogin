@@ -1,12 +1,12 @@
-package com.example.kotlinbasiclogin
+package com.fyntros.android
 
 import android.content.DialogInterface
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         //Button that runs the review function
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
-            createReview()
+            showRateAppFallbackDialog()
         }
 
     }
@@ -47,8 +47,7 @@ class MainActivity : AppCompatActivity() {
 
                 flow.addOnCompleteListener { task1: Task<Void?>? -> }
             } else {
-                // ReviewInfo object didnt load in testing, Show fallback box instead.
-                showRateAppFallbackDialog()
+                Toast.makeText(this, "In-App Review was not called.", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -58,7 +57,8 @@ class MainActivity : AppCompatActivity() {
         MaterialAlertDialogBuilder(this)
                 .setTitle("Rate us")
                 .setMessage("Liked us? Please rate us on play store")
-                .setPositiveButton("Okay") { dialog, which -> }
+                .setPositiveButton("Okay") { dialog, which -> createReview()
+                }
                 .setNegativeButton(
                         "Not now"
                 ) { dialog, which -> }

@@ -8,13 +8,21 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.kotlinbasiclogin"
+        applicationId "com.fyntros.android"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "inappReview 0.0.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        config {
+            storeFile file('./fyntros.keystore')
+            storePassword "123qwe!"
+            keyAlias "fyntros"
+            keyPassword "123qwe!"
+        }
     }
 
     buildTypes {

@@ -1,4 +1,4 @@
-package com.example.kotlinbasiclogin
+package com.fyntros.android
 
 import org.junit.Test
 

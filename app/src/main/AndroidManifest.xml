@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kotlinbasiclogin">
+    package="com.fyntros.android"
+    android:versionCode="2">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinBasicLogin">
         <activity
-            android:name=".MainActivity"
+            android:name="com.fyntros.android.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.KotlinBasicLogin.NoActionBar">
             <intent-filter>
