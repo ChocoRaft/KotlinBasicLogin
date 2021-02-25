@@ -12,14 +12,8 @@ const val BASE_URL =
     "https://gorest.co.in/public-api/users/"
 
 
-//create our Retrofit instance
-private var retrofit = Retrofit.Builder()
-    .addConverterFactory(GsonConverterFactory.create())
-    .baseUrl(BASE_URL)
-    .build()
-
 //Interface to get the "users" data in a Contact JSON object form
-public interface UserApiService {
+interface UserApiService {
     @GET("users")
     suspend fun getEmployees(): Response<Contact>
 
@@ -29,10 +23,10 @@ public interface UserApiService {
 
 @Suppress("UNCHECKED_CAST")
 fun  parseJSON(): List<ContactData>? = runBlocking {
-    var contactlist: List<ContactData>? = null
+    val contactlist: List<ContactData>?
     // Create Retrofit
     val retrofit = Retrofit.Builder()
-            .baseUrl("https://gorest.co.in/public-api/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -52,8 +46,3 @@ fun  parseJSON(): List<ContactData>? = runBlocking {
 }
 
 
-//deprecated object not used
-object UserApi {
-    val retrofitService : UserApiService by lazy {
-        retrofit.create(UserApiService::class.java) }
-}

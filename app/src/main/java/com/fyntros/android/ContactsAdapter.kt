@@ -15,9 +15,9 @@ class ContactsAdapter (private val mContacts: List<ContactData>): RecyclerView.A
     //RecyclerView has its own
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         //Assign variables to XML objects
-        val nameTextView = itemView.findViewById<TextView>(R.id.contact_name)
-        val emailTextView = itemView.findViewById<TextView>(R.id.email_text)
-        val avatarView = itemView.findViewById<ImageView>(R.id.avatarImage)
+        val nameTextView: TextView = itemView.findViewById(R.id.contact_name)
+        val emailTextView: TextView = itemView.findViewById(R.id.email_text)
+        val avatarView: ImageView = itemView.findViewById(R.id.avatarImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsAdapter.ViewHolder {
@@ -31,11 +31,11 @@ class ContactsAdapter (private val mContacts: List<ContactData>): RecyclerView.A
 
     override fun onBindViewHolder(viewHolder: ContactsAdapter.ViewHolder, position: Int) {
         // Get the data object based on position
-        val contact: ContactData = mContacts.get(position)
+        val contact: ContactData = mContacts[position]
 
         //Custom initializing of a drawable variable tex to the first letter of the employee name.
         //This will be used to create the "avatar" for the contact
-        val tex = TextDrawable.builder().buildRound(contact.employeeName?.get(0)?.toString(), Color.RED);
+        val tex = TextDrawable.builder().buildRound(contact.employeeName?.get(0)?.toString(), Color.RED)
 
 
         //val image would be added in case of images being used. Unfortunately no images were provided in the data.
@@ -44,8 +44,8 @@ class ContactsAdapter (private val mContacts: List<ContactData>): RecyclerView.A
         val textView1 = viewHolder.nameTextView
         val textView2 = viewHolder.emailTextView
         val avatarImg = viewHolder.avatarView
-        textView1.setText(contact.employeeName)
-        textView2.setText((contact.email))
+        textView1.text = contact.employeeName
+        textView2.text = contact.email
 
 
 

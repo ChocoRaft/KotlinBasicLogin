@@ -29,7 +29,7 @@ class SecondFragment : Fragment() {
 
 
         //Rvcontacts is the designation for the recyclerview container itself
-        val rvcontacts = view.findViewById<RecyclerView>(R.id.contactsRViewer) as RecyclerView
+        val rvcontacts = view.findViewById(R.id.contactsRViewer) as RecyclerView
 
 
         rvcontacts.layoutManager = LinearLayoutManager(context)
@@ -41,16 +41,10 @@ class SecondFragment : Fragment() {
         }
 
         //Test function
-        println(parseJSON().toString());
+        println(parseJSON().toString())
 
     }
-        //deprecated function used in testing
-       fun createList(): List<ContactData> {
-           var con1 = parseJSON()!!.get(0)
 
-           var listee = listOf<ContactData>(con1)
-           return listee
-       }
 
 
 

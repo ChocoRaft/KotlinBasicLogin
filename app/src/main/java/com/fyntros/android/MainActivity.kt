@@ -1,13 +1,12 @@
 package com.fyntros.android
 
-import android.content.DialogInterface
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun createReview(){
+    private fun createReview(){
         //val manager = FakeReviewManager(applicationContext)
         reviewManager = ReviewManagerFactory.create(this)
 
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
                 //Needs a developer account to test.
 
-                flow.addOnCompleteListener { task1: Task<Void?>? -> }
+                flow.addOnCompleteListener { }
             } else {
                 Toast.makeText(this, "In-App Review was not called.", Toast.LENGTH_SHORT).show()
             }
@@ -57,16 +56,16 @@ class MainActivity : AppCompatActivity() {
         MaterialAlertDialogBuilder(this)
                 .setTitle("Rate us")
                 .setMessage("Liked us? Please rate us on play store")
-                .setPositiveButton("Okay") { dialog, which -> createReview()
+                .setPositiveButton("Okay") { _, _ -> createReview()
                 }
                 .setNegativeButton(
                         "Not now"
-                ) { dialog, which -> }
+                ) { _, _ -> }
                 .setNeutralButton(
                         "Cancel"
-                ) { dialog, which -> }
-                .setOnDismissListener(DialogInterface.OnDismissListener { dialog: DialogInterface? -> })
-                .show()
+                ) { _, _ -> }
+                .setOnDismissListener { }
+            .show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
